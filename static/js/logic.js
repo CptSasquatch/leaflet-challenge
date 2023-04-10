@@ -13,8 +13,9 @@ let grayscale = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}
 	maxZoom: 20,
 	ext: 'png'
 });
-let outdoors = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+let outdoors = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
+	maxZoom: 20,
+	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 });
 // create the function to determine the circle size based on magnitude
 function circleSize(magnitude) {
@@ -54,7 +55,7 @@ d3.json(earthquakeUrl).then(function (earthquakeData) {
         layer.bindPopup(`<h3>Location: ${feature.properties.place}
         </h3><hr><p>Date: ${new Date(feature.properties.time)}
         </p><p>Magnitude: ${feature.properties.mag}
-        </p><p>Depth: ${feature.geometry.coordinates[2]}
+        </p><p>Depth: ${feature.geometry.coordinates[2]} km
         </p><p>Last Updated: ${new Date(feature.properties.updated)}
         </p>`);
     }
@@ -112,7 +113,7 @@ d3.json(earthquakeUrl).then(function (earthquakeData) {
             let legendInfo = "<p><b>Earthquake Depth</p>";
             // loop through the limits and generate a label with a colored square for each
             for (let i = 0; i < limits.length; i++) {
-                labels.push("<p><p class='square " + colors[i] +"'></p>&nbsp"+  limits[i] + "</p>");
+                labels.push("<p><p class='square " + colors[i] +"'></p>&nbsp"+  limits[i] + "&nbspkm</p>");
             }   
             div.innerHTML = legendInfo;
             div.innerHTML += "<p class='legtext'>" + labels.join("") + "</p>";
