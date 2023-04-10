@@ -14,10 +14,9 @@ The data set is visualized using Leaflet. The following features are included in
 ## Attribution
 * [USGS GeoJSON Feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php)
 * [Tectonic Plates GeoJSON](https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json)
-* [Leaflet](https://leafletjs.com/)
+* [Leaflet.js](https://leafletjs.com/)
 * [D3](https://d3js.org/)
 * [USGS Topographic Map](https://usgs.gov/)
 * [Black and White Map](http://stamen.com)
 * [Stadia Maps Outdoors](https://stadiamaps.com/)
 * [OpenStreetMap](https://www.openstreetmap.org/)
-* [Leaflet.js](https://leafletjs.com/)
